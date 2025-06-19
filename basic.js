@@ -126,6 +126,19 @@ function sumOfDigits(num) {
     
 }
 
+function leapYear(num) {
+
+    if ((num % 4 ==0 && num % 100 !=0)|| num % 400 == 0) {
+        return num + " is leap year";
+    } else {
+        return num + " is not a leap year";
+        
+    }
+
+
+    
+}
+
 let a = 5;
 let b = 6;
 let c = 12345;
@@ -176,6 +189,15 @@ console.log("sum Of Digits");
 sumOfDigits(c);
 sumOfDigits(d);
 sumOfDigits(e);
+
+console.log("leap year check");
+console.log(leapYear(2024));
+console.log(leapYear(2020));
+console.log(leapYear(2001));
+console.log(leapYear(2009));
+
+
+
 
 
 
