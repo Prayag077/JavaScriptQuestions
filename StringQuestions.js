@@ -1,4 +1,7 @@
+console.log(`%cString Questions`, "color: Magenta; font-weight: bold; background : white; font-size: 22px;");
+
 function reverseString(str) {
+    console.log("String : " , str);
     
     let nstr= " ";
 
@@ -10,6 +13,7 @@ function reverseString(str) {
 }
 
 function reverseEachWord(str) {
+    console.log("String : " , str);
     
     let reverse = " ";
 
@@ -24,6 +28,7 @@ function reverseEachWord(str) {
 }
 
 function dupeChar(str) {
+    console.log("String : " , str);
 
     let dupeChar = new Map();
 
@@ -44,6 +49,7 @@ function dupeChar(str) {
 }
 
 function occuranceOfEachWord(str) {
+    console.log("String : " , str);
     let occurance = new Map();
 
     for (let word of str.split(' ')) {
@@ -58,12 +64,14 @@ function occuranceOfEachWord(str) {
 
 
 function countNumberOfWords(str) {
+    console.log("String : " , str);
     words = str.split(" ").length;
     console.log("number of words in give String : " + words);
 }
 
 
 function permutationRecursion(str, prefix) {
+
 
     if (str.length ==0) {
         console.log(prefix);
@@ -79,6 +87,7 @@ function permutationRecursion(str, prefix) {
 }
 
 function StringPalindrome(str) {
+    console.log("String : " , str);
     let first = 0;
     let last = str.length-1;
 
@@ -95,6 +104,9 @@ function StringPalindrome(str) {
 }
 
 function anograms(str1,str2) {
+    console.log("Str1: " , str1);
+    console.log("Str2: ", str2);
+    
     
     if (str1.length != str2.length) {
         console.log("not anograms");
@@ -119,6 +131,7 @@ function anograms(str1,str2) {
 
 
 function countVowelsAndConst(str) {
+    console.log("String : " , str);
     
     let vowels = 0;
     let conso = 0;
@@ -135,6 +148,7 @@ function countVowelsAndConst(str) {
 }
 
 function uniqueChar(str) {
+    console.log("String : " , str);
     
     let unique = new Array(256).fill(false);
 
@@ -149,53 +163,262 @@ function uniqueChar(str) {
     }
 }
 
+function printEvenIndex(str) {
+    console.log("String : " , str);
+    let nstr =" ";
+    for (let i = 0; i < str.length; i++) {
+        if (i %2 === 0 ) {
+            nstr += str.charAt(i);
+        }
+    }
+    console.log(nstr);
+}
+
+function removeSpace(str) {
+    console.log("String : " , str);
+    let nstr = " ";
+
+    for (let i = 0; i < str.length; i++) {
+        if (str.charAt(i) != " " ) {
+            nstr += str.charAt(i);
+        }
+    }
+    console.log(nstr);
+}
+
+
+function eachLetterTwice(str) {
+    console.log("String : " , str);
+    
+    let nstr = " ";
+
+    for (let c of str) {
+        nstr += c + c;
+    }
+    console.log(nstr);
+    
+}
+
+function swapTwoString(str1,str2) {
+    console.log(`Before Swapping str1 = ${str1} ` );
+    console.log(`Before Swapping str2 = ${str2}`);
+    
+    str1 = str1 + str2;
+    str2 = str1.substring(0,str1.length - str2.length);
+    str1 = str1.substring(str2.length);
+
+    console.log(`After Swapping str1 = ${str1} ` );
+    console.log(`After Swapping str2 = ${str2}`);
+}
+
+function countChar(str) {
+    console.log("String : " , str);
+    let count = 1;
+    let nstr = " ";
+
+    for (let i = 0; i < str.length; i++) {
+        if (i+1 < str.length && str.charAt(i) == str.charAt(i+1)) {
+            count++;
+        } else {
+            nstr += str.charAt(i) + count;
+            count = 1;
+        }
+    }
+    console.log(nstr);
+}
+
+function upperLower(str) {
+    console.log("String : " , str);
+
+    let upper = " ";
+    let lower = " ";
+
+    for (let c of str) {
+        if ('a' <= c && 'z' >= c) {
+            upper += c;
+        } else if (c >= 'A' && c <= 'Z') {
+            lower += c;
+        }
+    }
+
+    console.log("Lower case:", lower);
+    console.log("Upper case:", upper);
+}
+
+
+function digitAlpha(str) {
+
+    console.log("String : " , str);
+
+    let digit = " ";
+    let alpha = " ";
+
+    for (let c of str) {
+        if ('0' <= c && '9' >= c) {
+            digit += c;
+        } else{
+            alpha += c;
+        }
+    }
+
+    console.log(" Alphabet:", alpha);
+    console.log("digit:", digit);
+}
+
+function digitAlphaInSameLine(str) {
+
+    console.log("String : " , str);
+
+    let digit = " ";
+    let alpha = " ";
+
+    for (let c of str) {
+        if ('0' <= c && '9' >= c) {
+            digit += c;
+        } else{
+            alpha += c;
+        }
+    }
+
+    console.log(" AlphaAndDigit:", alpha , digit);
+    
+}
+
+function format(str) {
+
+    console.log("BEFORE FORMAT: " + str);
+    let number = parseInt(str,10);
+    let formatted = number.toString().padStart(11,'0');
+    console.log("AFTER FORMAT: " + formatted);
+
+}
+
+function longestWithhoutRepeatingChar(str) {
+
+    console.log("String " , str);
+    
+    
+    let first = 0;
+    let end = 0;
+    let minIndex = 0; 
+
+    const set = new Set();
+
+    while (end < str.length) {
+        if (!set.has(str.charAt(end))) {
+            set.add(str.charAt(end));
+        minIndex = Math.max(minIndex, end - first +1);
+        end++;
+        } else {
+            set.delete(str.charAt(first));
+            first++;
+        }
+    }
+
+    console.log("Longest length without repeating characters:", minIndex);
+}
+
+
+
 
 const str = "Jai shree ram";
 const str1 = "Jai shree ram Jai shree ramJai shree ram Jai shree ram Jai shree ram";
 const str2 = "malayalam";
+const str3 = "JAI shree RAM Jai SHREE ramJai shree RAM JAI SHREE ram Jai shree ram";
+const str4 = "m3al8aya77la5442m";
 
-console.log("reverse each character of the given String");
+
+function styledLog(message) {
+    console.log(`%c${message}`, "color: black; font-weight: bold; background : yellow; font-size: 16px;");
+}
+
+
+
+styledLog("reverse each character of the given String");
 console.log(reverseString(str));
 
-
-console.log("revese each Word");
+styledLog("reverse each Word of the given String");
 console.log(reverseEachWord(str));
 
-console.log("check for duplicate Characters");
+styledLog("check for duplicate Characters in a given String");
 dupeChar(str1);
 
-console.log("Check Occurance of each word");
+styledLog("Check Occurrence of each word of the give String");
 occuranceOfEachWord(str1);
 
-console.log("check Number Of Words");
+styledLog("check Number Of Words from the give String");
 countNumberOfWords(str);
 countNumberOfWords(str1);
 
+styledLog("check permutation of the Given String");
+permutationRecursion("ABC", " ");
+permutationRecursion("RAM", " ");
 
-console.log("check permutation");
-permutationRecursion("ABC" , " ");
-permutationRecursion("RAM"," ");
-
-console.log("check if the Stirng is Palindrome");
+styledLog("check if the String is Palindrome");
 palindrome(str2);
 palindrome(str1);
 palindrome("madam");
 
-
-console.log("check anograms");
+styledLog("check anagrams from given Strings");
 anograms("ram", "mar");
 anograms("ram", "m3faar");
-anograms("listen", "silent"); 
-anograms("apple", "papel");   
-anograms("rat", "car");    
+anograms("listen", "silent");
+anograms("apple", "papel");
+anograms("rat", "car");
 
-console.log("count vowels and consonant");
+styledLog("count vowels and consonants from the give String");
 countVowelsAndConst(str2);
 countVowelsAndConst(str1);
 
-console.log("print unique Character");
+styledLog("print unique Characters from the given String");
 uniqueChar(str2);
 uniqueChar(str1);
+
+styledLog("print even Index Characters from the give String");
+printEvenIndex(str1);
+printEvenIndex(str2);
+
+styledLog("remove Spaces frome the give string");
+removeSpace(str);
+removeSpace(str1);
+
+styledLog("print each letter twice");
+eachLetterTwice(str);
+eachLetterTwice(str1);
+
+styledLog("swap two Strings without using a third one");
+swapTwoString(str1, str2);
+
+styledLog("character Count in a row");
+countChar(str);
+countChar(str1);
+
+styledLog("Upper and Lower case Extractor");
+upperLower(str3);
+
+styledLog("Digit and Alpha Extractor");
+digitAlpha(str4);
+
+styledLog("Print Digit and Alphabet in same line");
+digitAlphaInSameLine(str4);
+
+styledLog("Format number to 11 digits");
+format("12345");
+format("4512");
+
+styledLog("longest Without repeating character in given String");
+longestWithhoutRepeatingChar(str);
+longestWithhoutRepeatingChar(str1);
+longestWithhoutRepeatingChar(str2);
+
+
+
+
+
+
+
+
+
 
 
 
