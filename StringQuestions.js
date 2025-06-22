@@ -402,7 +402,7 @@ digitAlpha(str4);
 styledLog("Print Digit and Alphabet in same line");
 digitAlphaInSameLine(str4);
 
-styledLog("Format number to 11 digits");
+styledLog("Format number in 11 digits");
 format("12345");
 format("4512");
 
